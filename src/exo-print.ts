@@ -43,7 +43,7 @@ function objectPosition(params: {
     objectName: string,
     alignment: "left" | "right"
 }) {
-    const {objectName, alignment} = params
+    const { objectName, alignment } = params
     console.log(`${objectName} is on the ${alignment} side of the table`)
 }
 
@@ -52,3 +52,16 @@ const chair = objectPosition({
     "alignment": "left"
 })
 
+function compare(params: {
+    a: string,
+    b: string
+}): -1 | 0 | 1 {
+    const { a, b } = params
+    return a === b ? 0 : a > b ? 1 : -1
+}
+
+const test = compare({
+    "a": "Hello",
+    "b": "Coucou"
+})
+console.log(test)
