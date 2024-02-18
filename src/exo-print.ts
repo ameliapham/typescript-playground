@@ -93,11 +93,11 @@ combine("auto")
 
 // null or non-null ?
 
-function checkStr(x : string | null){
+function checkStr(x? : string | null){
     if(x === null){
 
     } else {
-        console.log(x.toUpperCase())
+        console.log(x!.toUpperCase())
     }
 }
 
