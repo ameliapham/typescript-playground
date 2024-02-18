@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "build": "npx tsc",
-    "run-exo-print-id": "yarn build && node dist/exo-print-id.js"
+    "run-exo-print": "yarn build && node dist/exo-print.js"
   },
   "dependencies": {
     "@types/node": "^20.11.19",
