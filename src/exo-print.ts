@@ -34,5 +34,21 @@ function welcomePeople(params: {
     }
 }
 
-const listTraveler = welcomePeople({"names": ["Huong", "Joseph"] })
-const listTraveler2 = welcomePeople({"names" : "Anto"})
+const listTraveler = welcomePeople({ "names": ["Huong", "Joseph"] })
+const listTraveler2 = welcomePeople({ "names": "Anto" })
+
+// Functions that only accept a certain set of known values
+
+function objectPosition(params: {
+    objectName: string,
+    alignment: "left" | "right"
+}) {
+    const {objectName, alignment} = params
+    console.log(`${objectName} is on the ${alignment} side of the table`)
+}
+
+const chair = objectPosition({
+    "objectName": "chair",
+    "alignment": "left"
+})
+
