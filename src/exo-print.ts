@@ -21,6 +21,10 @@ const hisID = printID({
     "id": 88
 })
 
+
+
+
+
 // string or array of string ?
 
 function welcomePeople(params: {
@@ -37,6 +41,10 @@ function welcomePeople(params: {
 const listTraveler = welcomePeople({ "names": ["Huong", "Joseph"] })
 const listTraveler2 = welcomePeople({ "names": "Anto" })
 
+
+
+
+
 // Functions that only accept a certain set of known values
 
 function objectPosition(params: {
@@ -52,6 +60,7 @@ const chair = objectPosition({
     "alignment": "left"
 })
 
+
 function compare(params: {
     a: string,
     b: string
@@ -65,3 +74,16 @@ const test = compare({
     "b": "Coucou"
 })
 console.log(test)
+
+
+
+type Options = {
+    width: number
+}
+
+function combine(x : Options | "auto" ){
+    console.log(x)
+}
+
+combine({"width": 100})
+combine("auto")
