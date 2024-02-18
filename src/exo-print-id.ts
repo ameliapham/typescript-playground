@@ -3,12 +3,16 @@ function printID(params: {
     id: number | string
 }) {
     const { name, id } = params
-    console.log(`${name}'s ID is ${id}`)
+    if (typeof id === "string"){
+        console.log(`${name}'s ID is ${id.toUpperCase()}`)
+    } else {
+        console.log(`${name}'s ID is ${id}`)
+    }
 }
 
 const myID = printID({
     "name": "Huong",
-    "id": "103"
+    "id": "xd103"
 })
 const hisID = printID({
     "name": "Joseph",
