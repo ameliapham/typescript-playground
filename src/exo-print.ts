@@ -87,3 +87,18 @@ function combine(x : Options | "auto" ){
 
 combine({"width": 100})
 combine("auto")
+
+
+
+
+// null or non-null ?
+
+function checkStr(x : string | null){
+    if(x === null){
+
+    } else {
+        console.log(x.toUpperCase())
+    }
+}
+
+const myStr = checkStr("hello")
