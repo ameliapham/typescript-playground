@@ -25,7 +25,17 @@ function createMyArray(...elements: string[]): MyArray {
 
 }
 
+const myArray = createMyArray("🦁", "🐷", "🦊")
 
+myArray.push("🦁")
+myArray.push("🐥")
+myArray.push("🐰")
+myArray.push("🐱")
+
+console.log(myArray.toString())
+
+myArray.pop()
+console.log(myArray.toString())
 
 
 
