@@ -1,3 +1,5 @@
+import { assert } from "tsafe"
+
 // Check type of Date
 
 function logValue(x : Date | string){
