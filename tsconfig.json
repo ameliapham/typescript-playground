@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "es2020", // Adjust based on your Node.js version
     "module": "commonjs",
-    "lib": ["es2020"], // Provides lib files for the target features
+    "lib": ["es2020", "DOM"], // Provides lib files for the target features
     "strict": true, // Enable all strict type-checking options
     "esModuleInterop": true, // Enables emit interoperability between CommonJS and ES Modules
     "skipLibCheck": true, // Skip type checking of all declaration files (*.d.ts)
