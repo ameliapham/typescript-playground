@@ -7,10 +7,13 @@
   "license": "MIT",
   "scripts": {
     "build": "npx tsc",
-    "run-exo-print": "yarn build && node dist/exo-print.js"
+    "run-exo-print": "yarn build && node dist/exo-print.js",
+    "run-exo-date": "yarn build && node dist/exo-date.js"
+
   },
   "dependencies": {
     "@types/node": "^20.11.19",
-    "typescript": "^5.3.3"
+    "typescript": "^5.3.3",
+    "tsafe": "^1.6.6"
   }
 }
