@@ -43,3 +43,20 @@ const durationSecond = durationMs / 1000;
 
 
 console.log(`Le program a mis ${durationSecond} secondes a s'executer`);
+
+
+// Example of using DOM with TypeScript
+
+const x: Date= new Date(1708292559093);
+
+const elapsedSecond = ((new Date()).getTime() - x.getTime())/1000;
+
+console.log(`${elapsedSecond / 60} seconds`)
+
+console.log(x.toUTCString());
+
+const element= document.getElementById("my-button")
+
+assert(element !== null);
+
+element.style.backgroundColor = "black"
