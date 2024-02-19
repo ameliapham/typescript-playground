@@ -8,7 +8,9 @@
   "scripts": {
     "build": "npx tsc",
     "run-exo-print": "yarn build && node dist/exo-print.js",
-    "run-exo-date": "yarn build && node dist/exo-date.js"
+    "run-exo-date": "yarn build && node dist/exo-date.js",
+    "run-exo-array": "yarn build && node dist/exo-array.js"
+
 
   },
   "dependencies": {
