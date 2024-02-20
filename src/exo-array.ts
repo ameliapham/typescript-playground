@@ -76,13 +76,24 @@ function createMyArray<T>(...elements: T[]): MyArray<T> {
                 internalArrayNumber.push(element);
             })*/
 
-            const internalArrayNumber = internalArray.map(element => {
+            /* const internalArrayNumber = internalArray.map(element => {
                 if( typeof element !== "number"){
                     throw new Error(`This function required an array of number`)
                 }
                 return element;
             })            
+            */
 
+            if( internalArray.length === 0 ){
+                throw new Error("There is no smallest element, it's an empty array");
+            }
+
+            if (!internalArray.every(element => typeof element === "number")) {
+                throw new Error(`This function required an array of number`)
+            }
+
+            const internalArrayNumber: number[]= internalArray as any;
+            
             const sum = internalArrayNumber.reduce((sum, cur) => {
                 return sum + cur;
             }, 0);
