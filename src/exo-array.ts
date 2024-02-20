@@ -1,4 +1,4 @@
-import { assert } from "tsafe"
+import { assert, Equals } from "tsafe"
 
 type MyArray<T> = {
     toString: () => string;
@@ -6,7 +6,8 @@ type MyArray<T> = {
     pop: () => void;
     length: number;
     getElement: (index: number) => T;
-    lastElement : T | undefined
+    lastElement: T | undefined;
+    pushArray: (...elems: T[]) => void
 }
 
 function createMyArray<T>(...elements: T[]): MyArray<T> {
@@ -15,7 +16,7 @@ function createMyArray<T>(...elements: T[]): MyArray<T> {
 
     const initialLength = internalArray.length
 
-    const initialLastElement = internalArray[initialLength-1]
+    const initialLastElement = internalArray[initialLength - 1]
 
     const myArray: MyArray<T> = {
         "toString": () => internalArray.join(" - "),
@@ -30,7 +31,7 @@ function createMyArray<T>(...elements: T[]): MyArray<T> {
             } else {
                 internalArray.pop();
                 myArray.length -= 1;
-                myArray.lastElement = internalArray[myArray.length-1]
+                myArray.lastElement = internalArray[myArray.length - 1]
             }
         },
         "length": initialLength,
@@ -41,7 +42,17 @@ function createMyArray<T>(...elements: T[]): MyArray<T> {
                 return internalArray[index]
             }
         },
-        "lastElement": initialLastElement
+        "lastElement": initialLastElement,
+
+        "pushArray": (...elems) => {
+            const newAdjustArray = elems
+            for (let i = 0; i < newAdjustArray.length; i++) {
+                internalArray.push(newAdjustArray[i])
+                myArray.length += 1
+                myArray.lastElement = internalArray[myArray.length-1]
+            }
+        }
+
 
     }
 
@@ -76,3 +87,13 @@ console.log(myArray.toString())
 console.log(`length's array is ${myArray.length}`)
 
 console.log(`last element of my array is ${myArray.lastElement}`)
+
+myArray.pushArray("a","b","c")
+
+console.log(myArray.toString())
+console.log(`length's array is ${myArray.length}`)
+console.log(`last element of my array is ${myArray.lastElement}`)
+
+
+
+
