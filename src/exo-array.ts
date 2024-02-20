@@ -9,7 +9,8 @@ type MyArray<T> = {
     getElement: (index: number) => T;
     lastElement: T | undefined;
     pushArray: (...elems: T[]) => void;
-    getSum: () => number
+    getSum: () => number;
+    findSmallerElement: () => { element: number, index: number }
 }
 
 function createMyArray<T>(...elements: T[]): MyArray<T> {
@@ -58,7 +59,7 @@ function createMyArray<T>(...elements: T[]): MyArray<T> {
 
         },
         "getSum": () => {
-            
+
             // const internalArrayNumber: number[] = [];
             /*
             for (let i = 0; i < myArray.myLength; i++){
@@ -84,7 +85,7 @@ function createMyArray<T>(...elements: T[]): MyArray<T> {
             })            
             */
 
-            if( internalArray.length === 0 ){
+            if (internalArray.length === 0) {
                 throw new Error("There is no smallest element, it's an empty array");
             }
 
@@ -92,16 +93,44 @@ function createMyArray<T>(...elements: T[]): MyArray<T> {
                 throw new Error(`This function required an array of number`)
             }
 
-            const internalArrayNumber: number[]= internalArray as any;
-            
+            const internalArrayNumber: number[] = internalArray as any;
+
             const sum = internalArrayNumber.reduce((sum, cur) => {
                 return sum + cur;
             }, 0);
 
+            /*
+            assert(is<number[]>(internalArray));
+
+            const sum = internalArray.reduce((sum, cur) => {
+                return sum + cur;
+            }, 0);
+            */
             return sum;
+        },
+        "findSmallerElement": () => {
+            if (internalArray.length === 0) {
+                throw new Error("There is no smallest element, it's an empty array");
+            }
+
+            if (!internalArray.every(element => typeof element === "number")) {
+                throw new Error(`This function required an array of number`)
+            }
+            const internalArrayNumber: number[] = internalArray as any;
+
+            let smallestNumber = internalArrayNumber[0];
+            let index = 0;
+
+            for (let i = 0; i < myArray.myLength; i++){
+                if (internalArrayNumber[i] < smallestNumber){
+                    smallestNumber = internalArrayNumber[i];
+                    index = i
+                }
+            }
+
+            return {"element": smallestNumber, "index": index};
+
         }
-
-
 
     }
 
@@ -149,9 +178,15 @@ console.log(`last element of my array is ${myArray.lastElement}`)
 
 
 
-const myArrayNumber = createMyArray(3, 1, 4, 2, 6, 5)
+const myArrayNumber = createMyArray(8, 3, 1, 4, 2, 6, 5)
 
 console.log(myArrayNumber.toString())
 console.log(`length's array is ${myArrayNumber.myLength}`)
 
 console.log(myArrayNumber.getSum())
+
+const smallestNumber = myArrayNumber.findSmallerElement().element
+const indexOfSmallestNumber = myArrayNumber.findSmallerElement().index
+
+console.log(smallestNumber)
+console.log(indexOfSmallestNumber)
