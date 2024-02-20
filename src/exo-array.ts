@@ -8,7 +8,8 @@ type MyArray<T> = {
     myLength: number;
     getElement: (index: number) => T;
     lastElement: T | undefined;
-    pushArray: (...elems: T[]) => void
+    pushArray: (...elems: T[]) => void;
+    getSum: () => number
 }
 
 function createMyArray<T>(...elements: T[]): MyArray<T> {
@@ -55,7 +56,26 @@ function createMyArray<T>(...elements: T[]): MyArray<T> {
             //myArray.myLength+= elements.length;
             //myArray.lastElement = internalArray[myArray.myLength - 1]
 
+        },
+        "getSum": () => {
+
+            const internalArrayNumber: number[] = [];
+            for (let i = 0; i < myArray.myLength; i++){
+                const num = internalArray[i];
+                if (typeof num !== "number"){
+                    throw new Error(`This function required an array of number`);
+                }
+                internalArrayNumber.push(num);
+            }
+
+            const sum = internalArrayNumber.reduce((sum, cur) => {
+                return sum + cur;
+            }, 0);
+
+            return sum;
+
         }
+
 
 
     }
@@ -106,4 +126,7 @@ console.log(`last element of my array is ${myArray.lastElement}`)
 
 const myArrayNumber = createMyArray(3, 1, 4, 2, 6, 5)
 
+console.log(myArrayNumber.toString())
 console.log(`length's array is ${myArrayNumber.myLength}`)
+
+console.log(myArrayNumber.getSum())
