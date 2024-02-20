@@ -58,22 +58,28 @@ function createMyArray<T>(...elements: T[]): MyArray<T> {
 
         },
         "getSum": () => {
-
             const internalArrayNumber: number[] = [];
+            /*
             for (let i = 0; i < myArray.myLength; i++){
                 const num = internalArray[i];
                 if (typeof num !== "number"){
                     throw new Error(`This function required an array of number`);
                 }
                 internalArrayNumber.push(num);
-            }
+            }*/
+
+            internalArray.forEach(element => {
+                if (typeof element !== "number") {
+                    throw new Error(`This function required an array of number`);
+                }
+                internalArrayNumber.push(element);
+            })
 
             const sum = internalArrayNumber.reduce((sum, cur) => {
                 return sum + cur;
             }, 0);
 
             return sum;
-
         }
 
 
