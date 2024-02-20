@@ -1,10 +1,11 @@
 import { assert, Equals } from "tsafe"
+import { is } from "tsafe/is";
 
 type MyArray<T> = {
     toString: () => string;
-    push: (elem: T) => void;
+    myPush: (elem: T) => void;
     pop: () => void;
-    length: number;
+    myLength: number;
     getElement: (index: number) => T;
     lastElement: T | undefined;
     pushArray: (...elems: T[]) => void
@@ -20,37 +21,40 @@ function createMyArray<T>(...elements: T[]): MyArray<T> {
 
     const myArray: MyArray<T> = {
         "toString": () => internalArray.join(" - "),
-        "push": (elem) => {
+        "myPush": (elem) => {
             internalArray.push(elem);
-            myArray.length += 1;
+            myArray.myLength += 1;
             myArray.lastElement = elem
         },
         "pop": () => {
-            if (myArray.length <= 0) {
+            if (myArray.myLength <= 0) {
                 // do nothing
-            } else {
-                internalArray.pop();
-                myArray.length -= 1;
-                myArray.lastElement = internalArray[myArray.length - 1]
+                return;
             }
+            internalArray.pop();
+            myArray.myLength -= 1;
+            myArray.lastElement = internalArray[myArray.myLength - 1]
         },
-        "length": initialLength,
+        "myLength": initialLength,
         "getElement": (index) => {
-            if (index > myArray.length) {
-                throw new Error(`Warning you asked for the ${index} element but there is only ${myArray.length} element`)
+            if (index > myArray.myLength) {
+                throw new Error(`Warning you asked for the ${index} element but there is only ${myArray.myLength} element`)
             } else {
                 return internalArray[index]
             }
         },
         "lastElement": initialLastElement,
 
-        "pushArray": (...elems) => {
-            const newAdjustArray = elems
-            for (let i = 0; i < newAdjustArray.length; i++) {
-                internalArray.push(newAdjustArray[i])
-                myArray.length += 1
-                myArray.lastElement = internalArray[myArray.length-1]
+        "pushArray": (...elements) => {
+
+            for (let i = 0; i < elements.length; i++) {
+                myArray.myPush(elements[i]);
+                // internalArray.push(elements[i])
             }
+
+            //myArray.myLength+= elements.length;
+            //myArray.lastElement = internalArray[myArray.myLength - 1]
+
         }
 
 
@@ -60,19 +64,20 @@ function createMyArray<T>(...elements: T[]): MyArray<T> {
 
 }
 
-const myArray = createMyArray("🦁", "🐷", "🦊")
-console.log(`length's array is ${myArray.length}`)
 
-myArray.push("🦁")
+const myArray = createMyArray("🦁", "🐷", "🦊")
+console.log(`length's array is ${myArray.myLength}`)
+
+myArray.myPush("🦁")
 console.log(myArray.toString())
 
-console.log(`length's array is ${myArray.length}`)
+console.log(`length's array is ${myArray.myLength}`)
 
 console.log(`last element of my array is ${myArray.lastElement}`)
 
-myArray.push("🐥")
-myArray.push("🐰")
-myArray.push("🐱")
+myArray.myPush("🐥")
+myArray.myPush("🐰")
+myArray.myPush("🐱")
 console.log(`I get element ${myArray.getElement(5)}`)
 
 console.log(myArray.toString())
@@ -84,16 +89,21 @@ myArray.pop()
 
 console.log(myArray.toString())
 
-console.log(`length's array is ${myArray.length}`)
+console.log(`length's array is ${myArray.myLength}`)
 
 console.log(`last element of my array is ${myArray.lastElement}`)
 
-myArray.pushArray("a","b","c")
+myArray.pushArray("a", "b", "c")
 
 console.log(myArray.toString())
-console.log(`length's array is ${myArray.length}`)
+console.log(`length's array is ${myArray.myLength}`)
 console.log(`last element of my array is ${myArray.lastElement}`)
 
 
 
 
+
+
+const myArrayNumber = createMyArray(3, 1, 4, 2, 6, 5)
+
+console.log(`length's array is ${myArrayNumber.myLength}`)
