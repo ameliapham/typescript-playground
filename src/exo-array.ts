@@ -58,7 +58,8 @@ function createMyArray<T>(...elements: T[]): MyArray<T> {
 
         },
         "getSum": () => {
-            const internalArrayNumber: number[] = [];
+            
+            // const internalArrayNumber: number[] = [];
             /*
             for (let i = 0; i < myArray.myLength; i++){
                 const num = internalArray[i];
@@ -68,12 +69,19 @@ function createMyArray<T>(...elements: T[]): MyArray<T> {
                 internalArrayNumber.push(num);
             }*/
 
-            internalArray.forEach(element => {
+            /* internalArray.forEach(element => {
                 if (typeof element !== "number") {
                     throw new Error(`This function required an array of number`);
                 }
                 internalArrayNumber.push(element);
-            })
+            })*/
+
+            const internalArrayNumber = internalArray.map(element => {
+                if( typeof element !== "number"){
+                    throw new Error(`This function required an array of number`)
+                }
+                return element;
+            })            
 
             const sum = internalArrayNumber.reduce((sum, cur) => {
                 return sum + cur;
