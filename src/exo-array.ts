@@ -21,8 +21,12 @@ function createMyArray(...elements: string[]): MyArray {
             myArray.length += 1;
         },
         "pop": () => {
-            internalArray.pop();
-            myArray.length -= 1;
+            if (myArray.length <= 0) {
+                // do nothing
+            } else {
+                internalArray.pop();
+                myArray.length -= 1;
+            }
         },
         "length": initialLength,
         "getElement": (index) => {
