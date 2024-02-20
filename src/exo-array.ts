@@ -15,9 +15,15 @@ function createMyArray(...elements: string[]): MyArray {
 
     const myArray: MyArray = {
         "toString": () => internalArray.join(" - "),
-        "push": (elem) => internalArray.push(elem),
-        "pop": () => internalArray.pop(),
-        "length": initialLength
+        "push": (elem) => {
+            internalArray.push(elem);
+            myArray.length += 1;
+        },
+        "pop": () => {
+            internalArray.pop();
+            myArray.length -= 1;
+        },
+        "length": initialLength,
 
     }
 
@@ -26,8 +32,11 @@ function createMyArray(...elements: string[]): MyArray {
 }
 
 const myArray = createMyArray("🦁", "🐷", "🦊")
+console.log(myArray.length)
 
 myArray.push("🦁")
+console.log(myArray.length)
+
 myArray.push("🐥")
 myArray.push("🐰")
 myArray.push("🐱")
@@ -36,6 +45,7 @@ console.log(myArray.toString())
 
 myArray.pop()
 console.log(myArray.toString())
+console.log(myArray.length)
 
 
 
