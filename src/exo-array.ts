@@ -5,6 +5,7 @@ type MyArray = {
     push: (elem: string) => void;
     pop: () => void;
     length: number;
+    getElement: (index: number) => string
 }
 
 function createMyArray(...elements: string[]): MyArray {
@@ -24,6 +25,13 @@ function createMyArray(...elements: string[]): MyArray {
             myArray.length -= 1;
         },
         "length": initialLength,
+        "getElement": (index) => {
+            if (index > myArray.length) {
+                throw new Error(`Warning you asked for the ${index} element but there is only ${myArray.length} element`)
+            } else {
+                return internalArray[index]
+            }
+        }
 
     }
 
@@ -46,6 +54,8 @@ console.log(myArray.toString())
 myArray.pop()
 console.log(myArray.toString())
 console.log(myArray.length)
+
+console.log(myArray.getElement(5))
 
 
 
