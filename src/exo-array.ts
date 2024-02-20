@@ -1,15 +1,15 @@
 import { assert } from "tsafe"
 
-type MyArray = {
+type MyArray<T> = {
     toString: () => string;
-    push: (elem: string) => void;
+    push: (elem: T) => void;
     pop: () => void;
     length: number;
-    getElement: (index: number) => string;
-    lastElement : string | undefined
+    getElement: (index: number) => T;
+    lastElement : T | undefined
 }
 
-function createMyArray(...elements: string[]): MyArray {
+function createMyArray<T>(...elements: T[]): MyArray<T> {
 
     const internalArray = elements
 
@@ -17,7 +17,7 @@ function createMyArray(...elements: string[]): MyArray {
 
     const initialLastElement = internalArray[initialLength-1]
 
-    const myArray: MyArray = {
+    const myArray: MyArray<T> = {
         "toString": () => internalArray.join(" - "),
         "push": (elem) => {
             internalArray.push(elem);
