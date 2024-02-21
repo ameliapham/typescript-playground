@@ -10,7 +10,8 @@ type MyArray<T> = {
     lastElement: T | undefined;
     pushArray: (...elems: T[]) => void;
     getSum: () => number;
-    findSmallerElement: () => { element: number, index: number }
+    findSmallerElement: () => { element: number, index: number };
+    sort: () => void
 }
 
 function createMyArray<T>(...elements: T[]): MyArray<T> {
@@ -99,13 +100,6 @@ function createMyArray<T>(...elements: T[]): MyArray<T> {
                 return sum + cur;
             }, 0);
 
-            /*
-            assert(is<number[]>(internalArray));
-
-            const sum = internalArray.reduce((sum, cur) => {
-                return sum + cur;
-            }, 0);
-            */
             return sum;
         },
         "findSmallerElement": () => {
@@ -145,9 +139,35 @@ function createMyArray<T>(...elements: T[]): MyArray<T> {
 
             return { "element": smallestNumber, "index": index };
 
-        }
+        },
+        "sort": () => {
+            const internalArrayNumber: number[] = []
 
+            internalArray.forEach(element => {
+                if (typeof element !== "number") {
+                    throw new Error(`This function required an array of number`)
+                }
+                internalArrayNumber.push(element)
+            })
+
+            for (let i = 0; i < myArray.myLength; i++) {
+                let min = i
+                for (let k = i + 1; k < myArray.myLength; k++) {
+                    if (internalArrayNumber[k] < internalArrayNumber[min]) {
+                        min = k
+                    }
+                }
+
+                if (min !== i) {
+                    let res = internalArrayNumber[i]
+                    internalArrayNumber[i] = internalArrayNumber[min]
+                    internalArrayNumber[min] = res
+                }
+            }
+            return internalArrayNumber
+        }
     }
+
 
     return myArray
 
@@ -188,8 +208,6 @@ console.log(myArray.toString())
 console.log(`length's array is ${myArray.myLength}`)
 console.log(`last element of my array is ${myArray.lastElement}`)
 
-console.log(myArray.getSum())
-
 
 
 
@@ -205,3 +223,7 @@ const indexOfSmallestNumber = myArrayNumber.findSmallerElement().index
 
 console.log(smallestNumber)
 console.log(indexOfSmallestNumber)
+
+const sortedInternalArrayNumber = myArrayNumber.sort()
+
+console.log(sortedInternalArrayNumber)
