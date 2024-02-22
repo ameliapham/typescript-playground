@@ -10,7 +10,7 @@ type MyArray<T> = {
     lastElement: T | undefined;
     pushArray: (...elems: T[]) => void;
     getSum: () => number;
-    findSmallerElement: () => { element: number, index: number };
+    findSmallerElement: () => { smallestNumber: number, index: number };
     sort: () => void
 }
 
@@ -127,17 +127,18 @@ function createMyArray<T>(...elements: T[]): MyArray<T> {
 
             });
 
-            let smallestNumber = internalArrayNumber[0];
+            console.log(internalArrayNumber)
+
             let index = 0;
 
-            for (let i = 0; i < myArray.myLength; i++) {
-                if (internalArrayNumber[i] < smallestNumber) {
-                    smallestNumber = internalArrayNumber[i];
+            for (let i = index + 1; i < myArray.myLength; i++) {
+                if (internalArrayNumber[i] < internalArrayNumber[index]) {
                     index = i
                 }
             }
 
-            return { "element": smallestNumber, "index": index };
+            const smallestNumber = internalArrayNumber[index]
+            return { "smallestNumber": smallestNumber, "index": index };
 
         },
         "sort": () => {
@@ -211,18 +212,18 @@ console.log(`last element of my array is ${myArray.lastElement}`)
 
 
 
-const myArrayNumber = createMyArray(8, 3, 1, 4, 2, 6, 5)
+const myArrayNumber = createMyArray(8, 7, 3, 1, 4, 2, 6, 5)
 
 console.log(myArrayNumber.toString())
 console.log(`length's array is ${myArrayNumber.myLength}`)
 
 console.log(myArrayNumber.getSum())
 
-const smallestNumber = myArrayNumber.findSmallerElement().element
-const indexOfSmallestNumber = myArrayNumber.findSmallerElement().index
+const smallestNumber = myArrayNumber.findSmallerElement().smallestNumber
+const index = myArrayNumber.findSmallerElement().index
 
-console.log(smallestNumber)
-console.log(indexOfSmallestNumber)
+console.log(`C'est smallest number ${smallestNumber}`)
+console.log(`C'est index ${index}`)
 
 const sortedInternalArrayNumber = myArrayNumber.sort()
 
