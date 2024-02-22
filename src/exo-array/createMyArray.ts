@@ -134,11 +134,32 @@ export function createMyArray<T>(...elements: T[]): MyArray<T> {
 
             internalArray.forEach(element => {
                 if (typeof element !== "number") {
-                    throw new Error(`This function required an array of number`)
+                    throw new Error(`This function required an array of number`);
                 }
             })
 
-            for (let i = 0; i < myArray.myLength; i++) {
+            const sortedArray = createMyArray<number>();
+
+            while (true){
+
+                if(myArray.myLength === 0){
+                    break;
+                }
+
+                const { smallestNumber, index } = myArray.findSmallerElement();
+
+                sortedArray.myPush(smallestNumber);
+
+                myArray.removeElementAtIndex(index)
+
+            }
+
+            for( let i = 0; i<sortedArray.myLength; i++){
+                const element = sortedArray.getElement(i);
+                myArray.myPush(element as any)
+            }
+
+            /*for (let i = 0; i < myArray.myLength; i++) {
                 let min = i
                 for (let k = i + 1; k < myArray.myLength; k++) {
                     if (internalArray[k] < internalArray[min]) {
@@ -151,7 +172,9 @@ export function createMyArray<T>(...elements: T[]): MyArray<T> {
                     internalArray[i] = internalArray[min]
                     internalArray[min] = res
                 }
-            }
+            }*/
+
+
         }
     }
 
