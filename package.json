@@ -9,9 +9,8 @@
     "build": "npx tsc",
     "run-exo-print": "yarn build && node dist/exo-print.js",
     "run-exo-date": "yarn build && node dist/exo-date.js",
-    "run-exo-array": "yarn build && node dist/exo-array.js"
-
-
+    "run-exo-array": "yarn build && node dist/exo-array.js",
+    "run-exo-array2": "yarn build && node dist/exo-array/test.js"
   },
   "dependencies": {
     "@types/node": "^20.11.19",
