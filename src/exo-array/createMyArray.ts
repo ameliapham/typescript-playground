@@ -140,9 +140,9 @@ export function createMyArray<T>(...elements: T[]): MyArray<T> {
 
             const sortedArray = createMyArray<number>();
 
-            while (true){
+            while (true) {
 
-                if(myArray.myLength === 0){
+                if (myArray.myLength === 0) {
                     break;
                 }
 
@@ -154,7 +154,7 @@ export function createMyArray<T>(...elements: T[]): MyArray<T> {
 
             }
 
-            for( let i = 0; i<sortedArray.myLength; i++){
+            for (let i = 0; i < sortedArray.myLength; i++) {
                 const element = sortedArray.getElement(i);
                 myArray.myPush(element as any)
             }
@@ -173,9 +173,17 @@ export function createMyArray<T>(...elements: T[]): MyArray<T> {
                     internalArray[min] = res
                 }
             }*/
-
-
+        },
+        "forEach": (callback) => {
+            for (let i = 0; i < myArray.myLength; i++){
+                const elem = myArray.getElement(i)
+                callback(elem)
+            }
         }
+
+
+        
+
     }
 
 
