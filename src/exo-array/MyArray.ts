@@ -11,5 +11,6 @@ export type MyArray<T> = {
     getSum: () => number;
     findSmallerElement: () => { smallestNumber: number, index: number };
     sort: () => void
-    forEach: (fn: (element: T)=>void)=>void;
+    forEach: (fn: (element: T)=>void)=>void
+    map: (fn: (element: T) => T) => MyArray<T>
 }
