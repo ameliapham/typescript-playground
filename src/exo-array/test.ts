@@ -71,3 +71,29 @@ import { assert } from "tsafe"
     console.log("Pass ✅")
 
 }
+
+{
+
+    const myArray= createMyArray(3,2,4,1)
+
+    const newArr = createMyArray<number>()
+
+    myArray.forEach((element) => {newArr.myPush(element + 1)})
+
+    const got = newArr.toString();
+
+    const expected = createMyArray(4,3,5,2).toString()
+
+    assert(got === expected, "Fail ❌");
+
+    console.log("Pass ✅")
+
+}
+
+{
+    const myArray= createMyArray(3,2,4,1)
+    const newArr: number[] = []
+    myArray.forEach((element) => {newArr.push(element + 1)})
+    console.log(newArr)
+
+}
