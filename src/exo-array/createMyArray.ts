@@ -192,6 +192,19 @@ export function createMyArray<T>(...elements: T[]): MyArray<T> {
 
             })
             return newArr
+        },
+        "filter": (fn) => {
+
+            const newArr = createMyArray<T>()
+
+            myArray.forEach(element => {
+
+                if (fn(element) === true){
+                    newArr.pushArray(element)
+                }
+
+            })
+            return newArr
         }
         
     }
