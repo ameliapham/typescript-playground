@@ -1,6 +1,6 @@
 
 export type MyArray<T> = {
-    toString: () => string;
+    myToString: () => string;
     myPush: (elem: T) => void;
     pop: () => void;
     removeElementAtIndex: (indexOfElementToRemove: number)=> void;
@@ -11,6 +11,6 @@ export type MyArray<T> = {
     getSum: () => number;
     findSmallerElement: () => { smallestNumber: number, index: number };
     sort: () => void
-    forEach: (fn: (element: T)=>void)=>void
+    forEach: (callback: (element: T)=>void)=>void
     map: (fn: (element: T) => T) => MyArray<T>
 }
