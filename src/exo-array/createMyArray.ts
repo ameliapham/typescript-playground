@@ -176,11 +176,23 @@ export function createMyArray<T>(...elements: T[]): MyArray<T> {
         },       
         "forEach": (fn) => {
             for (let i = 0; i < myArray.myLength; i++) {
+
                 const elem = myArray.getElement(i)
-                console.log(elem)
+
                 fn(elem)
             }
         },
+        "map": (fn) => {
+            const newArr = createMyArray<T>()
+
+            myArray.forEach(element => {
+
+                const newElem = fn(element)
+                newArr.myPush(newElem)
+
+            })
+            return newArr
+        }
         
     }
 
