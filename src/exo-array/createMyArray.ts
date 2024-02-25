@@ -10,7 +10,7 @@ export function createMyArray<T>(...elements: T[]): MyArray<T> {
 
 
     const myArray: MyArray<T> = {
-        "toString": () => internalArray.join(" - "),
+        "myToString": () => internalArray.join(" - "),
         "myPush": (elem) => {
             internalArray.push(elem);
             myArray.myLength += 1;
@@ -173,17 +173,15 @@ export function createMyArray<T>(...elements: T[]): MyArray<T> {
                     internalArray[min] = res
                 }
             }*/
-        },
-        "forEach": (callback) => {
-            for (let i = 0; i < myArray.myLength; i++){
+        },       
+        "forEach": (fn) => {
+            for (let i = 0; i < myArray.myLength; i++) {
                 const elem = myArray.getElement(i)
-                callback(elem)
+                console.log(elem)
+                fn(elem)
             }
-        }
-
-
+        },
         
-
     }
 
 
