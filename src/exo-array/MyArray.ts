@@ -10,7 +10,8 @@ export type MyArray<T> = {
     pushArray: (...elems: T[]) => void;
     getSum: () => number;
     findSmallerElement: () => { smallestNumber: number, index: number };
-    sort: () => void
-    forEach: (callback: (element: T)=>void)=>void
-    map: (fn: (element: T) => T) => MyArray<T>
+    sort: () => void;
+    forEach: (callback: (element: T)=>void)=>void;
+    map: (fn: (element: T) => T) => MyArray<T>;
+    filter: (predicate: (element: T, index: number) => T) => T
 }
