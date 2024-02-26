@@ -4,7 +4,9 @@ import { assert } from "tsafe"
 
 {
 
-    const myArray= createMyArray(3,2,4,1)
+    const myArray = createMyArray(3, 2, 4, 1)
+
+    console.log(myArray.myToString())
 
     const got = myArray.findSmallerElement();
 
@@ -58,13 +60,13 @@ import { assert } from "tsafe"
 
 {
 
-    const myArray= createMyArray(3,2,4,1)
+    const myArray = createMyArray(3, 2, 4, 1)
 
     myArray.sort();
 
-    const got = myArray.toString();
+    const got = myArray.myToString();
 
-    const expected = createMyArray(1,2,3,4).toString();
+    const expected = createMyArray(1, 2, 3, 4).myToString();
 
     assert(got === expected, `Fail ❌ got: ${got}, expected: ${expected}`);
 
@@ -72,17 +74,18 @@ import { assert } from "tsafe"
 
 }
 
+
 {
 
-    const myArray= createMyArray(3,2,4,1)
+    const myArray = createMyArray(3, 2, 4, 1)
 
     const newArr = createMyArray<number>()
 
-    myArray.forEach((element) => {newArr.myPush(element + 1)})
+    myArray.forEach((element) => { newArr.myPush(element + 1) })
 
-    const got = newArr.toString();
+    const got = newArr.myToString();
 
-    const expected = createMyArray(4,3,5,2).toString()
+    const expected = createMyArray(4, 3, 5, 2).myToString()
 
     assert(got === expected, "Fail ❌");
 
@@ -91,9 +94,10 @@ import { assert } from "tsafe"
 }
 
 {
-    const myArray= createMyArray(3,2,4,1)
+    const myArray = createMyArray(3, 2, 4, 1)
     const newArr: number[] = []
-    myArray.forEach((element) => {newArr.push(element + 1)})
+    myArray.forEach((element) => { newArr.push(element + 1) })
     console.log(newArr)
 
 }
+
