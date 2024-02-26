@@ -70,7 +70,7 @@ import { assert } from "tsafe"
 
     assert(got === expected, `Fail ❌ got: ${got}, expected: ${expected}`);
 
-    console.log("Pass ✅")
+    console.log("Test function sort : Pass ✅")
 
 }
 
@@ -89,7 +89,7 @@ import { assert } from "tsafe"
 
     assert(got === expected, "Fail ❌");
 
-    console.log("Pass ✅")
+    console.log("Test function forEach : Pass ✅")
 
 }
 
@@ -114,7 +114,7 @@ import { assert } from "tsafe"
 
     assert(got === expected, "Fail ❌")
 
-    console.log("Pass ✅")
+    console.log("Test function map : Pass ✅")
 }
 
 { 
@@ -130,7 +130,7 @@ import { assert } from "tsafe"
 
     assert ( got === expected, "Fail ❌")
 
-    console.log("Pass ✅")
+    console.log("Test function filter : Pass ✅")
 }
 
 { 
@@ -148,7 +148,7 @@ import { assert } from "tsafe"
 
     assert ( got === expected, "Fail ❌")
 
-    console.log("Pass ✅")
+    console.log("Test function filter : Pass ✅")
 }
 
 {
@@ -163,7 +163,7 @@ import { assert } from "tsafe"
 
     assert ( got === expected, "Fail ❌")
 
-    console.log("Pass ✅")
+    console.log("Test function removeElementAtIndex : Pass ✅")
 
 }
 
@@ -179,5 +179,5 @@ import { assert } from "tsafe"
 
     assert ( got === expected, "Fail ❌")
 
-    console.log("Pass ✅")
+    console.log("Test function setElement : Pass ✅")
 }
