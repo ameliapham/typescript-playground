@@ -133,3 +133,20 @@ import { assert } from "tsafe"
     console.log("Pass ✅")
 }
 
+{ 
+    const myArray = createMyArray("o", "o", "f", "b", "o", "o", "f", "a")
+
+    const target = "abcd"
+
+    const newArr = myArray.filter((_element, index) => {
+        return index >= target.length
+    })
+
+    const got = newArr.myToString()
+
+    const expected = createMyArray("o", "o", "f", "a").myToString()
+
+    assert ( got === expected, "Fail ❌")
+
+    console.log("Pass ✅")
+}
