@@ -39,6 +39,14 @@ export function createMyArray<T>(...elements: T[]): MyArray<T> {
         },
         "setElement": (indexOfElementToChange, newElement) => {
 
+            if (indexOfElementToChange > myArray.myLength){
+                throw new Error(`Warning you asked for the ${indexOfElementToChange}th element but there is only ${myArray.myLength} element`)
+            }
+
+            if (indexOfElementToChange === myArray.myLength){
+                myArray.myPush(newElement)
+            }
+
             internalArray[indexOfElementToChange] = newElement
 
         },
