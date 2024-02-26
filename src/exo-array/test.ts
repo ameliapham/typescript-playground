@@ -150,3 +150,18 @@ import { assert } from "tsafe"
 
     console.log("Pass ✅")
 }
+
+
+{ 
+    const myArray = createMyArray("a", "b", "c", "d")
+
+    myArray.setElement(2, "gotcha!")
+
+    const got = myArray.myToString()
+
+    const expected = createMyArray("a", "b", "gotcha!", "d").myToString()
+
+    assert ( got === expected, "Fail ❌")
+
+    console.log("Pass ✅")
+}
