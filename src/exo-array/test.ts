@@ -151,6 +151,22 @@ import { assert } from "tsafe"
     console.log("Pass ✅")
 }
 
+{
+
+    const myArray = createMyArray(2, 10, 13, 34, 5, 4)
+
+    myArray.removeElementAtIndex(2)
+
+    const got = myArray.myToString()
+
+    const expected = createMyArray(2, 10, 34, 5, 4).myToString()
+
+    assert ( got === expected, "Fail ❌")
+
+    console.log("Pass ✅")
+
+}
+
 
 { 
     const myArray = createMyArray("a", "b", "c", "d")
