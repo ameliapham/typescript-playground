@@ -174,12 +174,12 @@ export function createMyArray<T>(...elements: T[]): MyArray<T> {
                 }
             }*/
         },       
-        "forEach": (fn) => {
+        "forEach": (callback) => {
             for (let i = 0; i < myArray.myLength; i++) {
 
                 const elem = myArray.getElement(i)
 
-                fn(elem)
+                callback(elem, i)
             }
         },
         "map": (fn) => {
@@ -193,13 +193,12 @@ export function createMyArray<T>(...elements: T[]): MyArray<T> {
             })
             return newArr
         },
-        "filter": (fn) => {
-
+        "filter": (predicate) => {
             const newArr = createMyArray<T>()
 
-            myArray.forEach(element => {
+            myArray.forEach((element, index) => {
 
-                if (fn(element) === true){
+                if (predicate(element, index)){
                     newArr.pushArray(element)
                 }
 
@@ -208,7 +207,6 @@ export function createMyArray<T>(...elements: T[]): MyArray<T> {
         }
         
     }
-
 
     return myArray
 
