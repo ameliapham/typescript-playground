@@ -6,7 +6,7 @@ export type MyArray<T> = {
     removeElementAtIndex: (indexOfElementToRemove: number) => void;
     myLength: number;
     getElement: (index: number) => T;
-    setElement: (newElement: T, indexOfElementToChange: number) => void;
+    setElement: (indexOfElementToChange: number, newElement: T) => void;
     lastElement: T | undefined;
     pushArray: (...elems: T[]) => void;
     getSum: () => number;
