@@ -37,6 +37,11 @@ export function createMyArray<T>(...elements: T[]): MyArray<T> {
                 return internalArray[index]
             }
         },
+        "setElement": (indexOfElementToChange, newElement) => {
+
+            internalArray[indexOfElementToChange] = newElement
+
+        },
         "lastElement": initialLastElement,
 
         "pushArray": (...elements) => {
