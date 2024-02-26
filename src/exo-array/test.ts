@@ -116,3 +116,20 @@ import { assert } from "tsafe"
 
     console.log("Pass ✅")
 }
+
+{ 
+    const myArray = createMyArray(2, 10, 13, 34, 5, 4)
+
+    const newArr = myArray.filter((element) => {
+        return element <= 10
+    })
+
+    const got = newArr.myToString()
+
+    const expected = createMyArray(2, 10, 5, 4).myToString()
+
+    assert ( got === expected, "Fail ❌")
+
+    console.log("Pass ✅")
+}
+
