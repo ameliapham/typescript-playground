@@ -14,5 +14,6 @@ export type MyArray<T> = {
     sort: () => void;
     forEach: (callback: (element: T, index: number) => void) => void;
     map: (fn: (element: T) => T) => MyArray<T>;
-    filter: (predicate: (element: T, index: number) => boolean) => MyArray<T>
+    filter: (predicate: (element: T, index: number) => boolean) => MyArray<T>;
+    reduce: (callback: (accumulator: T, currentElement: T, currentIndex: number) => T, initialValue: number) => MyArray<T>
 }
