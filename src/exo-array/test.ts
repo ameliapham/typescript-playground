@@ -101,3 +101,18 @@ import { assert } from "tsafe"
 
 }
 
+{
+    const myArray = createMyArray(1, 2, 3, 4)
+
+    const newArr = myArray.map((element) => {
+        return element + 1
+    })
+
+    const got = newArr.myToString()
+
+    const expected = createMyArray(2, 3, 4, 5).myToString()
+
+    assert(got === expected, "Fail ❌")
+
+    console.log("Pass ✅")
+}
