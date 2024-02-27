@@ -194,5 +194,5 @@ import { assert } from "tsafe"
 
     assert ( got === expected, "Fail ❌")
 
-    console.log("Test function setElement : Pass ✅")
+    console.log("Test function reduce : Pass ✅")
 }
