@@ -181,3 +181,18 @@ import { assert } from "tsafe"
 
     console.log("Test function setElement : Pass ✅")
 }
+
+
+{ 
+    const myArray = createMyArray(1, 2, 3, 4)
+
+    const newArr = myArray.reduce((sum, currentElement) => sum + currentElement, 0)
+
+    const got = newArr.myToString()
+
+    const expected = createMyArray(10).myToString()
+
+    assert ( got === expected, "Fail ❌")
+
+    console.log("Test function setElement : Pass ✅")
+}
