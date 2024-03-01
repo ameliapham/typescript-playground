@@ -15,6 +15,7 @@ export function createMyArray<T>(...elements: T[]): MyArray<T> {
         },
         "removeElement": (index) => {
             internalArray.splice(index, 1)
+            myArray.length -= 1
         },
     }
 
