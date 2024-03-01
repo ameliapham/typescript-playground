@@ -19,6 +19,13 @@ export function createMyArray<T>(...elements: T[]): MyArray<T> {
         },
         "pop": () => {
             myArray.removeElement(myArray.length - 1)
+        },
+        "getElement": (index) => {
+            if (index >= myArray.length){
+                throw new Error(`Warning : You add for index ${index} but the array has only ${myArray.length} element`)
+            }
+            const gottenElement = internalArray[index];
+            return gottenElement
         }
     }
 
