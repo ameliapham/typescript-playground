@@ -90,3 +90,18 @@ import assert from "assert"
     console.log("Test pop passed ✅")
 
 }
+
+{
+    // Test getElement
+
+    const myArray = createMyArray("Huong", "is", "so", "strong", "Yeah!!!")
+
+    const got = myArray.getElement(0)
+
+    const expected = "Huong"
+
+    assert(got === expected, "Warning : test fail ❌")
+
+    console.log("Test getElement passed ✅")
+
+}
