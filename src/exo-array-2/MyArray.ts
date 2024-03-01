@@ -3,4 +3,5 @@ export type MyArray<T> = {
     push: (element: T) => void;
     pop: () => void;
     length: number;
+    removeElement: (index: number) => void
 }
