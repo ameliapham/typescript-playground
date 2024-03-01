@@ -12,7 +12,10 @@ export function createMyArray<T>(...elements: T[]): MyArray<T> {
         "push": (element) => {
             internalArray.push(element);
             myArray.length += 1;
-        }
+        },
+        "removeElement": (index) => {
+            internalArray.splice(index, 1)
+        },
     }
 
     return myArray
