@@ -43,9 +43,12 @@ import assert from "assert"
     myArray.push("Yeah!")
     myArray.push("Yeah!")
 
+    myArray.removeElement(5)
+    myArray.pop()
+
     const got = myArray.length
 
-    const expected = 7
+    const expected = 5
 
     assert(got === expected, "Warning : test fail ❌")
 
@@ -68,5 +71,22 @@ import assert from "assert"
     assert(got === expected, "Warning : test fail ❌")
 
     console.log("Test removeElement passed ✅")
+
+}
+
+{
+    // Test pop
+
+    const myArray = createMyArray("Huong", "is", "so", "strong", "Yeah!!!")
+
+    myArray.pop()
+
+    const got = myArray.toString()
+
+    const expected = createMyArray("Huong", "is", "so", "strong").toString()
+
+    assert(got === expected, "Warning : test fail ❌")
+
+    console.log("Test pop passed ✅")
 
 }
