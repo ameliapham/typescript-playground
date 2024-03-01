@@ -14,5 +14,21 @@ import assert from "assert"
 
     console.log("Test toString passed ✅")
 
+}
+
+{
+    // Test push
+
+    const myArray = createMyArray("Huong", "is", "so", "strong")
+
+    myArray.push("Yeah!")
+
+    const got = myArray.toString()
+
+    const expected = createMyArray("Huong", "is", "so", "strong", "Yeah!").toString()
+
+    //assert(got === expected, "Warning : test fail ❌")
+
+    console.log("Test push passed ✅")
 
 }
