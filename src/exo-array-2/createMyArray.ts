@@ -1,13 +1,18 @@
-import {MyArray} from "./MyArray"
+import { MyArray } from "./MyArray"
 
-function createMyArray<T>(...elements: T[]): MyArray<T>{
+export function createMyArray<T>(...elements: T[]): MyArray<T> {
 
     const internalArray = elements
 
+    const initialLength = internalArray.length
+
     const myArray: MyArray<T> = {
         "toString": () => internalArray.join(" - "),
-        "push": (element) => internalArray.push(element),
-        
+        "length": initialLength,
+        "push": (element) => {
+            internalArray.push(element);
+            myArray.length += 1;
+        }
     }
 
     return myArray
