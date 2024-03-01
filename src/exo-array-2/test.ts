@@ -52,3 +52,21 @@ import assert from "assert"
     console.log("Test length passed ✅")
 
 }
+
+
+{
+    // Test removeElement
+
+    const myArray = createMyArray("Huong", "is", "so", "strong")
+
+    myArray.removeElement(2)
+
+    const got = myArray.toString()
+
+    const expected = createMyArray("Huong", "is", "strong").toString()
+
+    assert(got === expected, "Warning : test fail ❌")
+
+    console.log("Test removeElement passed ✅")
+
+}
