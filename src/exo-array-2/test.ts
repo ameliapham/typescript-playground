@@ -32,3 +32,23 @@ import assert from "assert"
     console.log("Test push passed ✅")
 
 }
+
+
+{
+    // Test length
+
+    const myArray = createMyArray("Huong", "is", "so", "strong")
+
+    myArray.push("Yeah!")
+    myArray.push("Yeah!")
+    myArray.push("Yeah!")
+
+    const got = myArray.length
+
+    const expected = 7
+
+    assert(got === expected, "Warning : test fail ❌")
+
+    console.log("Test length passed ✅")
+
+}
