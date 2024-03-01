@@ -27,7 +27,7 @@ import assert from "assert"
 
     const expected = createMyArray("Huong", "is", "so", "strong", "Yeah!").toString()
 
-    //assert(got === expected, "Warning : test fail ❌")
+    assert(got === expected, "Warning : test fail ❌")
 
     console.log("Test push passed ✅")
 
