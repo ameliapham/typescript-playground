@@ -8,4 +8,5 @@ export type MyArray<T> = {
     getElement: (index: number) => T;
     setElement: (index: number, newElement: T) => void;
     lastElement: T;
+    getSum: () => number;
 }
