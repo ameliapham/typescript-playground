@@ -5,5 +5,6 @@ export type MyArray<T> = {
     length: number;
     removeElement: (index: number) => void;
     getElement: (index: number) => T;
-    setElement: (index: number, newElement: T) => void
+    setElement: (index: number, newElement: T) => void;
+    lastElement: T;
 }
