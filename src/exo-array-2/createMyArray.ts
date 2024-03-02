@@ -14,6 +14,7 @@ export function createMyArray<T>(...elements: T[]): MyArray<T> {
         "push": (element) => {
             internalArray[myArray.length] = element;
             myArray.length += 1;
+            myArray.lastElement = element
         },
         "removeElement": (index) => {
             if (index >= myArray.length) {
@@ -22,13 +23,18 @@ export function createMyArray<T>(...elements: T[]): MyArray<T> {
 
             internalArray.splice(index, 1)
             myArray.length -= 1
+
+            if (index === myArray.length) {
+                myArray.lastElement = internalArray[myArray.length - 1]
+            }
         },
         "pop": () => {
             if (myArray.length === 0){
-                
+
                 return
             }
             myArray.removeElement(myArray.length - 1)
+            myArray.lastElement = internalArray[myArray.length - 1]
         },
         "getElement": (index) => {
             if (index >= myArray.length) {
