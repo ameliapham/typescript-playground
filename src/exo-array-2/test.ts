@@ -122,3 +122,22 @@ import assert from "assert"
     console.log("Test setElement passed ✅")
 
 }
+
+{
+    // Test lastElement
+
+    const myArray = createMyArray("Huong", "is", "so", "strong")
+
+    myArray.push("Yeah!")
+    myArray.push("Hello!")
+    myArray.push("Ah Oh!")
+    myArray.removeElement(6)
+
+    const got = myArray.lastElement
+
+    const expected = "Hello!"
+
+    assert(got === expected, "Warning : test fail ❌")
+
+    console.log("Test setElement passed ✅")
+}
