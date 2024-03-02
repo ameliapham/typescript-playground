@@ -16,6 +16,12 @@ export function createMyArray<T>(...elements: T[]): MyArray<T> {
             myArray.length += 1;
             myArray.lastElement = element
         },
+        "pushArray": (...elements) => {
+            const newArr = elements;
+            for (let i = 0; i < newArr.length; i++) {
+                myArray.push(newArr[i])
+            }
+        },
         "removeElement": (index) => {
             if (index >= myArray.length) {
                 throw new Error(`Warning : You ask for index ${index} but the array has only ${myArray.length} element`)
