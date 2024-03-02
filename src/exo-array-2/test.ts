@@ -105,3 +105,20 @@ import assert from "assert"
     console.log("Test getElement passed ✅")
 
 }
+
+{
+    // Test setElement
+
+    const myArray = createMyArray("Huong", "is", "so", "strong")
+
+    myArray.setElement(3, "smart")
+
+    const got = myArray.toString()
+
+    const expected = createMyArray("Huong", "is", "so", "smart").toString()
+
+    assert(got === expected, "Warning : test fail ❌")
+
+    console.log("Test setElement passed ✅")
+
+}
