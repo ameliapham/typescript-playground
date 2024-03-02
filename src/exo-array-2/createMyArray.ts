@@ -34,6 +34,13 @@ export function createMyArray<T>(...elements: T[]): MyArray<T> {
             }
             const gottenElement = internalArray[index];
             return gottenElement
+        },
+
+        "setElement": (index, newElement) => {
+            if (index >= myArray.length) {
+                throw new Error(`Warning : You ask for index ${index} but the array has only ${myArray.length} element`)
+            }
+            internalArray[index] = newElement
         }
     }
 
