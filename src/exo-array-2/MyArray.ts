@@ -4,5 +4,6 @@ export type MyArray<T> = {
     pop: () => void;
     length: number;
     removeElement: (index: number) => void;
-    getElement: (index: number) => T
+    getElement: (index: number) => T;
+    setElement: (index: number, newElement: T) => void
 }
