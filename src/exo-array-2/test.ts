@@ -141,3 +141,20 @@ import assert from "assert"
 
     console.log("Test lastElement passed ✅")
 }
+
+{
+    // Test pushArray
+
+    const myArray = createMyArray("Huong", "is", "so", "strong")
+
+    myArray.pushArray("and", "she", "is", "very", "smart")
+
+    const got = myArray.toString()
+
+    const expected = createMyArray("Huong", "is", "so", "strong", "and", "she", "is", "very", "smart").toString()
+
+    assert(got === expected, "Warning : test fail ❌")
+
+    console.log("Test pushArray passed ✅")
+
+}
