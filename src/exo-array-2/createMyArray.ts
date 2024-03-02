@@ -6,6 +6,8 @@ export function createMyArray<T>(...elements: T[]): MyArray<T> {
 
     const initialLength = internalArray.length
 
+    let initialLastElement = internalArray[initialLength -1]
+
     const myArray: MyArray<T> = {
         "toString": () => internalArray.join(" - "),
         "length": initialLength,
@@ -41,7 +43,8 @@ export function createMyArray<T>(...elements: T[]): MyArray<T> {
                 throw new Error(`Warning : You ask for index ${index} but the array has only ${myArray.length} element`)
             }
             internalArray[index] = newElement
-        }
+        },
+        "lastElement": initialLastElement
     }
 
     return myArray
