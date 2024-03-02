@@ -1,4 +1,4 @@
-import {createMyArray} from "./createMyArray"
+import { createMyArray } from "./createMyArray"
 import assert from "assert"
 
 {
@@ -139,5 +139,5 @@ import assert from "assert"
 
     assert(got === expected, "Warning : test fail ❌")
 
-    console.log("Test setElement passed ✅")
+    console.log("Test lastElement passed ✅")
 }
