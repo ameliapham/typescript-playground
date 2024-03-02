@@ -10,7 +10,7 @@ export function createMyArray<T>(...elements: T[]): MyArray<T> {
         "toString": () => internalArray.join(" - "),
         "length": initialLength,
         "push": (element) => {
-            internalArray.push(element);
+            internalArray[myArray.length] = element;
             myArray.length += 1;
         },
         "removeElement": (index) => {
