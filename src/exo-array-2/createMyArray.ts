@@ -77,6 +77,21 @@ export function createMyArray<T>(...elements: T[]): MyArray<T> {
 
             return sum
         },
+        "findSmallestElement": () => {
+            const newInternalArray: number[] = []
+
+            if (myArray.length === 0) {
+                throw new Error(`This array is empty`);
+            }
+
+            internalArray.forEach(element => {
+                if (typeof element !== "number"){
+                    throw new Error(`This function required an array of number`)
+                }
+                newInternalArray.push(element)
+            })
+
+        },
     }
 
     return myArray
