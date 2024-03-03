@@ -6,7 +6,7 @@ export function createMyArray<T>(...elements: T[]): MyArray<T> {
 
     const initialLength = internalArray.length
 
-    let initialLastElement = internalArray[initialLength -1]
+    let initialLastElement = internalArray[initialLength - 1]
 
     const myArray: MyArray<T> = {
         "toString": () => internalArray.join(" - "),
@@ -35,7 +35,7 @@ export function createMyArray<T>(...elements: T[]): MyArray<T> {
             }
         },
         "pop": () => {
-            if (myArray.length === 0){
+            if (myArray.length === 0) {
 
                 return
             }
@@ -46,7 +46,7 @@ export function createMyArray<T>(...elements: T[]): MyArray<T> {
             if (index >= myArray.length) {
                 throw new Error(`Warning : You ask for index ${index} but the array has only ${myArray.length} element`)
             }
-            return internalArray[index]; 
+            return internalArray[index];
         },
 
         "setElement": (index, newElement) => {
@@ -55,7 +55,28 @@ export function createMyArray<T>(...elements: T[]): MyArray<T> {
             }
             internalArray[index] = newElement
         },
-        "lastElement": initialLastElement
+        "lastElement": initialLastElement,
+        "getSum": () => {
+
+            const newInternalArray: number[] = []
+
+            if (myArray.length === 0) {
+                throw new Error(`This array is empty`)
+            }
+
+            internalArray.forEach(element => {
+                if (typeof element !== "number") {
+                    throw new Error(`This function required an array of number`)
+                }
+                newInternalArray.push(element)
+            });
+
+            const sum = newInternalArray.reduce((acc, curr) => {
+                return acc + curr
+            }, 0)
+
+            return sum
+        },
     }
 
     return myArray
