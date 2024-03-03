@@ -9,4 +9,5 @@ export type MyArray<T> = {
     setElement: (index: number, newElement: T) => void;
     lastElement: T;
     getSum: () => number;
+    findSmallestElement : () => {smallestNumber : number, index: number};
 }
