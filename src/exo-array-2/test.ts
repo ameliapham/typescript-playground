@@ -158,3 +158,19 @@ import assert from "assert"
     console.log("Test pushArray passed ✅")
 
 }
+
+
+{
+    // Test getSum
+
+    const myArray = createMyArray(1,2,3,4,5)
+
+    const got = myArray.getSum()
+
+    const expected = 15
+
+    assert(got === expected, "Warning : test fail ❌")
+
+    console.log("Test pushArray passed ✅")
+
+}
