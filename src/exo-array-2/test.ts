@@ -171,6 +171,6 @@ import assert from "assert"
 
     assert(got === expected, "Warning : test fail ❌")
 
-    console.log("Test pushArray passed ✅")
+    console.log("Test getSum passed ✅")
 
 }
