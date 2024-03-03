@@ -85,12 +85,24 @@ export function createMyArray<T>(...elements: T[]): MyArray<T> {
             }
 
             internalArray.forEach(element => {
-                if (typeof element !== "number"){
+                if (typeof element !== "number") {
                     throw new Error(`This function required an array of number`)
                 }
                 newInternalArray.push(element)
             })
 
+            let index = 0
+
+            for (let i = 0; i < newInternalArray.length; i++) {
+                if (newInternalArray[i + 1] < newInternalArray[index]) {
+                    index = i + 1
+                }
+            }
+
+            return {
+                "smallestNumber": newInternalArray[index],
+                "index": index
+            }
         },
     }
 
