@@ -174,3 +174,18 @@ import assert from "assert"
     console.log("Test getSum passed ✅")
 
 }
+
+{
+    // Test findSmallestElement
+
+    const myArray = createMyArray(4, 5, 100, 2, 6)
+
+    const got = myArray.findSmallestElement().smallestNumber
+
+    const expected = 2
+
+    assert(got === expected, "Warning : test fail ❌")
+
+    console.log("Test findSmallestElement passed ✅")
+
+}
