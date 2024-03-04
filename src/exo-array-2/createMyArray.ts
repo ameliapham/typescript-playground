@@ -104,12 +104,27 @@ export function createMyArray<T>(...elements: T[]): MyArray<T> {
                 "index": index
             }
         },
+        "sort": () => {
+
+        },
         "forEach": (callback) => {
             for (let i = 0; i < myArray.length; i++){
                 // const element = internalArray[i]
                 const element = myArray.getElement(i)
                 callback(element, i)
             }
+        },
+        "map": (callback) => {
+
+            const newArr = createMyArray<T>()
+
+            myArray.forEach((element, index) => {
+                
+                const newElement = callback(element,index)
+                newArr.push(newElement)
+
+            })
+            return newArr
         }
     }
 
