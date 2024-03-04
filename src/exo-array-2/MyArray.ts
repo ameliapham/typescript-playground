@@ -11,5 +11,5 @@ export type MyArray<T> = {
     getSum: () => number;
     findSmallestElement: () => { smallestNumber: number, index: number };
     sort: () => void;
-    forEach: (callback: (element: T) => void) => void;
+    forEach: (callback: (element: T, index: number) => void) => void;
 }
