@@ -104,6 +104,13 @@ export function createMyArray<T>(...elements: T[]): MyArray<T> {
                 "index": index
             }
         },
+        "forEach": (callback) => {
+            for (let i = 0; i < myArray.length; i++){
+                // const element = internalArray[i]
+                const element = myArray.getElement(i)
+                callback(element)
+            }
+        }
     }
 
     return myArray
