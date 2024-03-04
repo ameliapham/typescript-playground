@@ -107,12 +107,12 @@ export function createMyArray<T>(...elements: T[]): MyArray<T> {
         "sort": () => {
             const sortedArray: number[] = []
 
-            while(true){
+            while (true) {
                 if (myArray.length === 0) {
                     break;
                 }
 
-                const {smallestNumber, index} = myArray.findSmallestElement()
+                const { smallestNumber, index } = myArray.findSmallestElement()
                 sortedArray.push(smallestNumber)
                 myArray.removeElement(index)
 
@@ -125,7 +125,7 @@ export function createMyArray<T>(...elements: T[]): MyArray<T> {
 
         },
         "forEach": (callback) => {
-            for (let i = 0; i < myArray.length; i++){
+            for (let i = 0; i < myArray.length; i++) {
                 // const element = internalArray[i]
                 const element = myArray.getElement(i)
                 callback(element, i)
@@ -136,8 +136,8 @@ export function createMyArray<T>(...elements: T[]): MyArray<T> {
             const newArr = createMyArray<T>()
 
             myArray.forEach((element, index) => {
-                
-                const newElement = callback(element,index)
+
+                const newElement = callback(element, index)
                 newArr.push(newElement)
 
             })
