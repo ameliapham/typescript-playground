@@ -191,6 +191,24 @@ import assert from "assert"
 }
 
 {
+
+    // Test sort
+
+    const myArray = createMyArray(4, 5, 100, 2, 6)
+    myArray.sort()
+
+    const got = myArray.toString()
+
+    const expected = createMyArray(2, 4, 5, 6, 100).toString()
+
+    assert(got === expected, "Warning : test fail ❌")
+
+    console.log("Test sort passed ✅")
+
+
+}
+
+{
     // Test forEach
 
     const myArray = createMyArray(4, 5, 100, 2, 6)
