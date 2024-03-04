@@ -64,7 +64,7 @@ export function createMyArray<T>(...elements: T[]): MyArray<T> {
                 throw new Error(`This array is empty`)
             }
 
-            internalArray.forEach(element => {
+            myArray.forEach(element => {
                 if (typeof element !== "number") {
                     throw new Error(`This function required an array of number`)
                 }
@@ -84,7 +84,7 @@ export function createMyArray<T>(...elements: T[]): MyArray<T> {
                 throw new Error(`This array is empty`);
             }
 
-            internalArray.forEach(element => {
+            myArray.forEach(element => {
                 if (typeof element !== "number") {
                     throw new Error(`This function required an array of number`)
                 }
