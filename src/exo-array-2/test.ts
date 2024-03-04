@@ -210,3 +210,22 @@ import assert from "assert"
     console.log("Test forEach passed ✅")
 
 }
+
+{
+    // Test map
+
+    const myArray = createMyArray(4, 5, 100, 2, 6)
+
+    const newArr = myArray.map((element) => {
+        return element + 1
+    })
+
+    const got = newArr.toString()
+
+    const expected = createMyArray(5, 6, 101, 3, 7).toString()
+
+    assert(got === expected, "Warning : test fail ❌")
+
+    console.log("Test map passed ✅")
+
+}
