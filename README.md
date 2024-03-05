@@ -1,2 +1,2 @@
 # ts-exercises
-Summary of basic typescript exercises
+A repo for my TypeScript experimentation.
