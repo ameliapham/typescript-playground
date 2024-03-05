@@ -163,7 +163,7 @@ import assert from "assert"
 {
     // Test getSum
 
-    const myArray = createMyArray(1,2,3,4,5)
+    const myArray = createMyArray(1, 2, 3, 4, 5)
 
     const got = myArray.getSum()
 
@@ -262,5 +262,26 @@ import assert from "assert"
     assert(got === expected, "Warning : test fail ❌")
 
     console.log("Test filter passed ✅")
+
+}
+
+{
+    // Test filter
+
+    const myArray = createMyArray("Huong", "is", "so", "strong", "and", "she", "is", "very", "smart");
+
+    const target = "abcd";
+
+    const newArr = myArray.filter((_, index) =>
+         index < target.length
+    )
+
+    const got = newArr.toString()
+
+    const expected = createMyArray("Huong", "is", "so", "strong").toString();
+
+    assert(got === expected, "Warning : test fail ❌");
+
+    console.log("Test filter passed ✅");
 
 }
